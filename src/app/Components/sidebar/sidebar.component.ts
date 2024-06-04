@@ -6,11 +6,11 @@ import {
 import { MatSidenav } from '@angular/material/sidenav';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  selector: 'app-sidebar',
+  templateUrl: './sidebar.component.html',
+  styleUrl: './sidebar.component.css'
 })
-export class AppComponent {
+export class SidebarComponent {
   title = 'material-responsive-sidenav';
   @ViewChild(MatSidenav)
   sidenav!: MatSidenav;
@@ -28,7 +28,8 @@ export class AppComponent {
       }
     });
   }
-
+  
+  submenuOpen: { [key: string]: boolean } = {};
   isCollapsed = true;
   toggleMenu() {
     if(this.isMobile){
@@ -40,5 +41,15 @@ export class AppComponent {
     }
   }
 
-}
+  toggleSubmenu(menu: string) {
+    // Close all other submenus
+    Object.keys(this.submenuOpen).forEach(key => {
+      if (key !== menu) {
+        this.submenuOpen[key] = false;
+      }
+    });
+    // Toggle the clicked submenu
+    this.submenuOpen[menu] = !this.submenuOpen[menu];
+  }
 
+}

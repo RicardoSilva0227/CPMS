@@ -1,0 +1,54 @@
+h1 {
+  padding: 0 1rem;
+}
+
+h2 {
+  padding: 1rem;
+}
+
+mat-toolbar {
+  position: fixed;
+  top: 0;
+  width: 100%; /* Ensure toolbar spans the full width */
+  z-index: 2;
+}
+
+mat-sidenav-container {
+  height: 100vh; /* Use full viewport height */
+  display: flex; /* Flexbox layout to ensure proper alignment */
+}
+
+mat-sidenav {
+  width: 250px; /* Set a width for the sidebar */
+  padding-top: 3.5rem; /* Ensure no overlap with toolbar */
+  @media screen and (min-width: 600px) {
+      padding-top: 4rem;
+  }
+
+  .entry {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.75rem;
+  }
+}
+
+mat-sidenav-content {
+  flex-grow: 1; /* Take the remaining space */
+  padding: 3.5rem 1rem 1rem 1rem; /* Add padding for content */
+  @media screen and (min-width: 600px) {
+      padding-top: 4rem;
+  }
+
+  /* Ensure content fits within the viewport */
+  overflow-y: auto; /* Add scroll if content overflows */
+  box-sizing: border-box;
+}
+
+.nested-menu {
+  padding-left: 20px;
+}
+
+.submenu-arrow {
+  margin-left: auto;
+}
